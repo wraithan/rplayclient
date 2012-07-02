@@ -11,7 +11,7 @@ import logging
 RPLAY_DOMAIN = os.getenv('RPLAY_DOMAIN', 'young-sky-3165.herokuapp.com')
 RPLAY_USERNAME = os.getenv('RPLAY_USERNAME', '')
 RPLAY_PASSWORD = os.getenv('RPLAY_PASSWORD', '')
-RPLAY_DIR = os.getenv('RPLAY_DIR', '/Users/issackelly/Library/Application Support/Blizzard/StarCraft II/Accounts/57319756/1-S2-1-3310624/Replays/Multiplayer')
+RPLAY_DIR = os.getenv('RPLAY_DIR', '/Users/*/Library/Application Support/Blizzard/StarCraft II/Accounts/*/*/Replays/Multiplayer')
 
 URL = 'http://%s' % RPLAY_DOMAIN
 MATCH_ENDPOINT = "%s/api/v1/match/" % URL
@@ -26,6 +26,7 @@ logger.addHandler(ch)
 
 def upload_replay(paths = []):
     for path in paths:
+        print "Uploading %s" % path
         # Open the File, and read it into a string
         fhandle = open(path, "rb").read().encode("base64")
 
