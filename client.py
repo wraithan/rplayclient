@@ -49,7 +49,10 @@ def upload_replay(paths = []):
         r.add_data(json.dumps(replay))
         r.add_header("Content-Type", "application/json")
 
-        urllib2.urlopen(r)
+        try:
+            urllib2.urlopen(r)
+        except Exception, exc:
+            import pdb; pdb.set_trace()
         time.sleep(3)
 
 
